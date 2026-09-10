@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Design tokens.
+   The accent colours are reserved for hover, active, selection and glow.
+   At rest the page should read near-monochrome; purple is earned, not ambient.
+   ========================================================================== */
+
+:root {
+  /* Surface */
+  --bg: #0d0a14;
+  --surface: #16111f;
+  --surface-2: #1d1729;
+  --hairline: rgba(241, 238, 246, 0.09);
+  --hairline-strong: rgba(241, 238, 246, 0.16);
+
+  /* Accent - interactive states only */
+  --accent: #a855f7;
+  --accent-2: #4c6fff;
+  --accent-dim: rgba(168, 85, 247, 0.14);
+  --accent-line: rgba(168, 85, 247, 0.45);
+
+  /* Text */
+  --text: #f1eef6;
+  --text-muted: #8a8296;
+  --text-faint: #635c70;
+
+  /* Type */
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --step--1: clamp(0.75rem, 0.72rem + 0.14vw, 0.82rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+  --step-2: clamp(1.45rem, 1.25rem + 0.9vw, 2.1rem);
+  --step-3: clamp(1.9rem, 1.5rem + 1.9vw, 3.2rem);
+  --step-4: clamp(2.6rem, 1.8rem + 3.6vw, 5rem);
+
+  /* Space */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --section-y: clamp(4.5rem, 10vh, 8.5rem);
+  --measure: 62ch;
+  --max-w: 1180px;
+
+  /* Motion - the budget is spent on the wheel. Everything else is quick. */
+  --t-fast: 120ms;
+  --t-base: 200ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 1ms;
+    --t-base: 1ms;
+  }
+}

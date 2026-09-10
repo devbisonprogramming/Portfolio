@@ -1,0 +1,391 @@
+/* ==========================================================================
+   Sections. Structure is carried by hairlines and spacing, not by drop
+   shadows or gradient panels.
+   ========================================================================== */
+
+/* --- Media -------------------------------------------------------------- */
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  background: var(--surface);
+}
+
+.media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Hero --------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: min(92vh, 860px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(5rem, 14vh, 9rem) clamp(6rem, 16vh, 10rem);
+}
+
+.hero__wordmark {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: clamp(2rem, 6vh, 3.5rem);
+}
+
+.hero__title {
+  max-width: 16ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero__tagline {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  max-width: 46ch;
+  line-height: 1.5;
+}
+
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: clamp(2.5rem, 7vh, 4rem) 0 2rem;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.hero__fact {
+  padding: 1.1rem clamp(1.25rem, 3vw, 2.25rem) 1.1rem 0;
+  margin-right: clamp(1.25rem, 3vw, 2.25rem);
+  border-right: 1px solid var(--hairline);
+}
+
+.hero__fact:last-child {
+  border-right: none;
+  margin-right: 0;
+}
+
+.hero__fact-value {
+  font-size: var(--step-1);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.hero__fact-label {
+  margin: 0.15rem 0 0;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  max-width: 22ch;
+}
+
+.hero__cue {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(1.75rem, 5vh, 3rem);
+  transform: translateX(-50%);
+  color: var(--text-faint);
+  padding: 0.5rem;
+  transition: color var(--t-base) var(--ease);
+}
+
+.hero__cue:hover,
+.hero__cue:focus-visible {
+  color: var(--accent);
+}
+
+/* --- What I provide ----------------------------------------------------- */
+
+.provide__list {
+  border-top: 1px solid var(--hairline);
+  max-width: 68ch;
+}
+
+.provide__item {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.9rem, 2vw, 1.35rem) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.provide__num {
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  flex: none;
+}
+
+.provide__text {
+  font-size: var(--step-1);
+  line-height: 1.4;
+}
+
+/* --- Supplementary (3D modelling) --------------------------------------- */
+
+.supplementary {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--hairline-strong);
+  max-width: 58ch;
+}
+
+.supplementary__title {
+  font-size: var(--step-0);
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.supplementary__body {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* --- Games -------------------------------------------------------------- */
+
+.game {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.game__title {
+  margin-bottom: 0.4rem;
+}
+
+.game__role {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.game__description {
+  margin-bottom: 1.5rem;
+}
+
+.game__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 1.5rem;
+}
+
+.game__visits {
+  font-size: var(--step-2);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.game__visits-note {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.game__link {
+  align-self: start;
+}
+
+@media (max-width: 767px) {
+  .game {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Pricing ------------------------------------------------------------ */
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tier {
+  background: var(--bg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* The middle tier is marked by a colour rail, not by a raised card. */
+.tier--emphasis {
+  background: var(--surface);
+  box-shadow: inset 0 2px 0 0 var(--accent);
+}
+
+.tier__name {
+  font-size: var(--step-1);
+  margin-bottom: 0.35rem;
+}
+
+.tier__time {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.tier__price {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step-2);
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.robux {
+  flex: none;
+  opacity: 0.75;
+}
+
+.tier__includes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.tier__includes li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.tier__includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: var(--text-faint);
+}
+
+.tier__best {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+  font-size: var(--step--1);
+}
+
+.tier__best-label {
+  display: block;
+  color: var(--text-faint);
+  margin-bottom: 0.15rem;
+}
+
+.pricing__footnote {
+  margin-top: 1.5rem;
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  max-width: 70ch;
+  font-style: italic;
+}
+
+@media (max-width: 899px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- About -------------------------------------------------------------- */
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  max-width: 56ch;
+}
+
+/* --- Contact ------------------------------------------------------------ */
+
+.contact__copy {
+  font-size: var(--step-1);
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact__handle {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* --- Footer ------------------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding-block: 2rem;
+}
+
+.footer__shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: var(--step--1);
+  color: var(--text-faint);
+}
+
+/* The AI disclosure: mono label, then the sentence, on one line where there is
+   room for it and stacked where there is not. */
+.footer__policy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  max-width: 68ch;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.footer__policy-label {
+  flex: none;
+  color: var(--text-faint);
+}
+
+.footer__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Gallery ------------------------------------------------------------ */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery__tile {
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 16 / 10;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

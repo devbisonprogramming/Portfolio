@@ -1,0 +1,159 @@
+/* ==========================================================================
+   Project detail overlay.
+   ========================================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 4, 10, 0.8);
+  backdrop-filter: blur(3px);
+}
+
+.modal__panel {
+  position: relative;
+  width: min(100%, 640px);
+  max-height: min(88vh, 900px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  /* The only place a coloured rail is used, keyed to the project's arc. */
+  border-top: 2px solid var(--project-accent, var(--accent));
+  border-radius: 4px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  /* A hairline rule rather than the platform scrollbar - the default one
+     brought its own track, arrows and width into an otherwise quiet panel. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline-strong) transparent;
+}
+
+.modal__panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal__panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal__panel::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+}
+
+.modal__panel:hover::-webkit-scrollbar-thumb {
+  background: var(--accent-line);
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  color: var(--text-muted);
+  transition:
+    color var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease);
+}
+
+.modal__close:hover,
+.modal__close:focus-visible {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.modal__header {
+  margin-bottom: 1.5rem;
+  padding-right: 2.5rem;
+}
+
+.modal__category {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--project-accent, var(--accent));
+  margin-bottom: 0.5rem;
+}
+
+.modal__title {
+  font-size: var(--step-2);
+  line-height: 1.15;
+}
+
+.modal__flagship {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--project-accent, var(--accent));
+  border-radius: 2px;
+  font-size: var(--step--1);
+  color: var(--project-accent, var(--accent));
+}
+
+.modal__note {
+  margin-top: 0.7rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.media--modal {
+  margin-bottom: 1.5rem;
+}
+
+.modal__description {
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  max-width: none;
+}
+
+.modal__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.75rem;
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.25rem;
+}
+
+.modal__features li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: var(--step-0);
+  line-height: 1.55;
+}
+
+.modal__features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 1px;
+  background: var(--project-accent, var(--accent));
+  opacity: 0.8;
+}
+
+.modal__repo {
+  display: inline-flex;
+}
+
+.modal .gallery {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Page chrome: the ambient pixel field and the scroll rail that replaces the
+   native scrollbar.
+   ========================================================================== */
+
+/* --- Native scrollbar --------------------------------------------------- */
+
+/* The document scrollbar is replaced by .scroll-rail. Removing it also removes
+   the width change that used to reflow the whole page whenever the project
+   overlay locked and released <body>. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* --- Ambient pixel field ------------------------------------------------ */
+
+/* Painted by src/lib/starfield.js. Sits above the page background and below
+   every piece of content, and never takes a pointer event. */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+/* --- Scroll rail -------------------------------------------------------- */
+
+.scroll-rail {
+  position: fixed;
+  right: clamp(0.7rem, 1.4vw, 1.4rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  /* Growing rightward would push the rail off the edge, so cells are pinned to
+     the right and the head marker extends inward. */
+  align-items: flex-end;
+  gap: 6px;
+  cursor: ns-resize;
+  touch-action: none;
+  transition: opacity var(--t-base) var(--ease);
+}
+
+/* A grab area wider than the pixels themselves - three CSS pixels is not a
+   pointer target. */
+.scroll-rail::before {
+  content: '';
+  position: absolute;
+  inset: -14px -12px;
+}
+
+.scroll-rail.is-idle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-rail__cell {
+  width: 3px;
+  height: 3px;
+  flex: none;
+  background: var(--text-faint);
+  opacity: 0.32;
+  transition:
+    width var(--t-fast) var(--ease),
+    opacity var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease);
+}
+
+.scroll-rail__cell.is-filled {
+  background: var(--text-muted);
+  opacity: 0.75;
+}
+
+.scroll-rail__cell.is-head {
+  width: 8px;
+  background: var(--text);
+  opacity: 1;
+}
+
+.scroll-rail:hover .scroll-rail__cell,
+.scroll-rail.is-dragging .scroll-rail__cell {
+  opacity: 0.9;
+}
+
+.scroll-rail.is-dragging .scroll-rail__cell.is-head {
+  background: var(--accent);
+}
+
+/* Touch viewports have no persistent scrollbar to replace, and the rail would
+   only sit under a thumb. */
+@media (max-width: 600px), (pointer: coarse) {
+  .scroll-rail {
+    display: none;
+  }
+}

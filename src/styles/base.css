@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Reset + base typography + shared primitives.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--step-4);
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: var(--step-3);
+}
+h3 {
+  font-size: var(--step-1);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+  max-width: var(--measure);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* --- Focus: always visible, never removed ------------------------------- */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0;
+  transform: translateY(-140%);
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--accent-line);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  transition: transform var(--t-base) var(--ease);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0.75rem);
+}
+
+/* --- Layout ------------------------------------------------------------- */
+
+/* Everything the visitor reads sits above the ambient pixel field, which is
+   painted onto a fixed canvas at z-index 0. */
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+  position: relative;
+}
+
+.section + .section {
+  border-top: 1px solid var(--hairline);
+}
+
+/* Section headings sit next to a mono index, not under a caps eyebrow. */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.section-head__index {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  flex: none;
+  padding-top: 0.35em;
+  font-variant-numeric: tabular-nums;
+}
+
+.section-head__text h2 {
+  margin-bottom: 0.5rem;
+}
+
+.section-head__text p {
+  color: var(--text-muted);
+}
+
+/* --- Shared primitives -------------------------------------------------- */
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.01em;
+  color: var(--text);
+  background: transparent;
+  transition:
+    border-color var(--t-fast) var(--ease),
+    background-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+}
+
+.btn--primary {
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+  color: var(--text);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: rgba(168, 85, 247, 0.24);
+  border-color: var(--accent);
+}
+
+.btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  color: var(--text-faint);
+  border-color: var(--hairline);
+  background: transparent;
+}
+
+.btn[aria-disabled='true']:hover {
+  background: transparent;
+  border-color: var(--hairline);
+}
+
+/* Availability badge - the only place a live dot is used. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  flex: none;
+}
+
+.badge--open {
+  border-color: var(--accent-line);
+  color: var(--text);
+}
+
+.badge--open .badge__dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+}
+
+.badge--open .badge__dot::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2.8s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge--open .badge__dot::after {
+    animation: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
