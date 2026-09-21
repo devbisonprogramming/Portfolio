@@ -31,7 +31,7 @@ export const categories = [
     accent: '#4C6FFF',
     icon: 'packet',
     blurb:
-      "I don't trust the client. Every remote is validated and rate-limited server-side before it touches game state - if it can be faked, assume someone will try.",
+      "Remotes are validated and rate-limited server-side before it touches any game state - if it can be faked it most likely will be.",
   },
   {
     name: 'Data & Persistence',

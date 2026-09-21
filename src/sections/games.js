@@ -10,7 +10,7 @@ export function gamesSection() {
   const shell = document.createElement('div');
   shell.className = 'shell';
 
-  shell.appendChild(sectionHead('03', 'Recent games shipped'));
+  shell.appendChild(sectionHead('03', 'Recent games'));
 
   site.games.forEach((game) => {
     const article = document.createElement('article');

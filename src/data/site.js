@@ -86,6 +86,18 @@ export const site = {
       url: 'https://www.roblox.com/games/81264486106059/Brainrot-Dungeon',
       image: 'games/brainrot-dungeon.webp',
     },
+    {
+      id: 'launch-a-penguin',
+      title: 'Launch a Penguin!',
+      role: 'Helped maintain the game for a period of time, worked with Boss Studios',
+      description:
+        'Grow your penguin and try to get stronger ones - load your penguin into the cannon and launch as far as you can!',
+      visits: '6.1M+',
+      visitsNote:
+        'I was not working on the game at its peak of 10k CCU but was involved later on',
+      url: 'https://www.roblox.com/games/135973019386884/Launch-a-Penguin',
+      image: 'games/launch-a-penguin.webp',
+    }
   ],
 };
 
