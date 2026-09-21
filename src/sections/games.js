@@ -12,6 +12,11 @@ export function gamesSection() {
 
   shell.appendChild(sectionHead('03', 'Recent games'));
 
+  // One entry per game, spaced and divided by a hairline rather than boxed
+  // into cards. Adding a third game to site.games needs no change here.
+  const list = document.createElement('div');
+  list.className = 'games__list';
+
   site.games.forEach((game) => {
     const article = document.createElement('article');
     article.className = 'game';
@@ -63,9 +68,10 @@ export function gamesSection() {
 
     body.append(title, role, description, stat, link);
     article.appendChild(body);
-    shell.appendChild(article);
+    list.appendChild(article);
   });
 
+  shell.appendChild(list);
   section.appendChild(shell);
   return section;
 }
