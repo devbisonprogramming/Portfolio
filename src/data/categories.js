@@ -34,18 +34,18 @@ export const categories = [
       "Remotes are validated and rate-limited server-side before it touches any game state - if it can be faked it most likely will be.",
   },
   {
-    name: 'Data & Persistence',
-    accent: '#6465FF',
-    icon: 'store',
-    blurb:
-      "These systems are built around locking against concurrent writes and not falling over between sessions to prevent losing a player to dataloss.",
-  },
-  {
     name: 'Gameplay Systems',
     accent: '#7C5CFB',
     icon: 'play',
     blurb:
       'The classic game systems - movement, abilities, events. Server-authoritative, config-driven, built so other devs can refine it without opening the code.',
+  },
+  {
+    name: 'Other Skills',
+    accent: '#A855F7',
+    icon: 'spark',
+    blurb:
+      "Not everything here is a full system. This is VFX, modelling, and animation work I've done alongside the programming.",
   },
   {
     name: 'UI/UX',
@@ -55,11 +55,11 @@ export const categories = [
       "I build interfaces as systems, not static screens - states automatically update UI from whatever systems they are linked to.",
   },
   {
-    name: 'Other Skills',
-    accent: '#A855F7',
-    icon: 'spark',
+    name: 'Data & Persistence',
+    accent: '#6465FF',
+    icon: 'store',
     blurb:
-      "Not everything here is a full system. This is VFX, modelling, and animation work I've done alongside the programming.",
+      "These systems are built around locking against concurrent writes and not falling over between sessions to prevent losing a player to dataloss.",
   },
 ];
 

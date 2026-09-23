@@ -78,18 +78,6 @@ export function footer() {
   const shell = document.createElement('div');
   shell.className = 'shell footer__shell';
 
-  const policy = document.createElement('p');
-  policy.className = 'footer__policy';
-
-  const policyLabel = document.createElement('span');
-  policyLabel.className = 'footer__policy-label mono';
-  policyLabel.textContent = site.aiPolicy.label;
-
-  const policyBody = document.createElement('span');
-  policyBody.textContent = site.aiPolicy.body;
-
-  policy.append(policyLabel, policyBody);
-
   const meta = document.createElement('div');
   meta.className = 'footer__meta';
 
@@ -103,7 +91,23 @@ export function footer() {
 
   meta.append(mark, year);
 
-  shell.append(policy, meta);
+  shell.append(footerNote(site.aiPolicy), footerNote(site.siteNote), meta);
   el.appendChild(shell);
   return el;
+}
+
+/** A footer disclosure: mono label, then the sentence. */
+function footerNote({ label, body }) {
+  const note = document.createElement('p');
+  note.className = 'footer__policy';
+
+  const noteLabel = document.createElement('span');
+  noteLabel.className = 'footer__policy-label mono';
+  noteLabel.textContent = label;
+
+  const noteBody = document.createElement('span');
+  noteBody.textContent = body;
+
+  note.append(noteLabel, noteBody);
+  return note;
 }

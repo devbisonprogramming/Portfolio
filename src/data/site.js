@@ -53,20 +53,17 @@ export const site = {
     'I prioritise clean, maintainable and performant code to ensure that my clients are always satisfied and dont run into issues down the line.',
   ],
 
-  /**
-   * AI POLICY - the short note in the footer. Kept deliberately plain: it is a
-   * disclosure, not a selling point.
-   */
   aiPolicy: {
     label: 'AI policy',
     body: 'Since many people worry about the use of AI, I can guarantee that my systems are designed and programmed by myself. AI is used solely as a development tool to streamline tasks such as debugging and finding optimisations to deliver the best results to clients as possible.',
   },
 
+  siteNote: {
+    label: 'Note',
+    body: 'I am not a web developer so this site was made with the assistance of Fable 5 as a better alternative to a website builder like Framer or Wix Studio. I am not trying to claim it as something I have programmed myself.',
+  },
+
   contact: {
-    /**
-     * Set this to null to render the contact button inert ("Discord link
-     * coming soon") rather than pointing at nothing.
-     */
     discordUrl: 'https://discord.com/users/674329973540126734',
     discordLabel: 'Discord',
     discordHandle: null, // optional: e.g. 'devbison' shown as plain text

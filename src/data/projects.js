@@ -54,7 +54,7 @@ export const projects = [
       'Compatible with RemoteFunctions',
       'Extends cleanly in large projects without adding clutter',
     ],
-    githubUrl: 'https://github.com/devbisonprogramming/Network',
+    // githubUrl: 'https://github.com/devbisonprogramming/Network',
     mediaType: 'image',
   },
   {
@@ -168,6 +168,7 @@ export const projects = [
       'Object-pooled ghost snapshot effect to maximise performance',
       'Reliable raycasting to aim wherever desired (within range)',
       'Camera effects such as movement pulse and flash',
+      'Made for an application hence the highly commented src',
     ],
     githubUrl: 'https://github.com/devbisonprogramming/Ghost-Step/blob/main/GhostStep.lua',
     mediaType: 'image',
@@ -191,20 +192,20 @@ export const projects = [
     githubUrl: 'https://github.com/devbisonprogramming/Inventory-System',
     mediaType: 'image',
   },
-  {
-    id: 'ui-design',
-    title: 'UI Design',
-    category: 'UI/UX',
-    description:
-      'I have programmed with most common types of menu out there that link into game functionality - just to name a few:',
-    features: [
-      'Performant menus that have to populate live, like indexes or inventories',
-      'Interactive main menus for games involving background camera effects too',
-      'Shop UIs made to catch the eye that link to secure MarketplaceService backends',
-    ],
-    mediaType: 'gallery',
-    gallery: ['ui-1', 'ui-2'],
-  },
+  // {
+  //   id: 'ui-design',
+  //   title: 'UI Design',
+  //   category: 'UI/UX',
+  //   description:
+  //     'I have programmed with most common types of menu out there that link into game functionality - just to name a few:',
+  //   features: [
+  //     'Performant menus that have to populate live, like indexes or inventories',
+  //     'Interactive main menus for games involving background camera effects too',
+  //     'Shop UIs made to catch the eye that link to secure MarketplaceService backends',
+  //   ],
+  //   mediaType: 'gallery',
+  //   gallery: ['ui-1', 'ui-2'],
+  // },
 
   // -------------------------------------------------- 5. Other Skills
   {
@@ -212,7 +213,7 @@ export const projects = [
     title: 'Weapon + VFX Demo',
     category: 'Other Skills',
     description:
-      'A visual demo built to be converted - the effects and feedback of a combat system, structured so the combat logic can be dropped in on top.',
+      'A visual demo built to be converted to a combat system structured so the combat logic can be dropped in on top.',
     features: [
       'Camera shake on impact',
       'A range of unique weapon VFX - magical staffs, lightning, and others',
@@ -260,6 +261,7 @@ export const projects = [
       'Ability animations that simulate weight and effort from the character',
       'Cutscene animations',
       'Animating rigs such as pet animations',
+      '(havent added actual videos here yet so these are unfortunately just images)',
     ],
     mediaType: 'gallery',
     gallery: ['animation-1', 'animation-2', 'animation-3', 'animation-4'],
